@@ -20,7 +20,7 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return "Tipo: " + tipo +
-               " | Cantidad: " + cantidad;
+        return "Tipo: " + getTipo() +
+               " | Cantidad: " + getCantidad();
     }
 }
