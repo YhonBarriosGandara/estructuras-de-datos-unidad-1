@@ -1,0 +1,17 @@
+# Maven / Build
+target/
+*.class
+
+# IDEs y Editores
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Sistema y herramientas
+.DS_Store
+Thumbs.db
+.gemini/
+.agents/
