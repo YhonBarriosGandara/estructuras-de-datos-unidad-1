@@ -10,8 +10,7 @@ public class Inventario {
 
         Scanner scanner = new Scanner(System.in);
 
-        Producto[] productos =
-            new Producto[MAX_PRODUCTOS];
+        Producto[] productos = new Producto[MAX_PRODUCTOS];
 
         int cantidadProductos = 0;
 
@@ -28,12 +27,10 @@ public class Inventario {
             switch (opcion) {
 
                 case 1:
-                    cantidadProductos =
-                        registrarProducto(
+                    cantidadProductos = registrarProducto(
                             productos,
                             cantidadProductos,
-                            scanner
-                        );
+                            scanner);
                     break;
 
                 case 2:
@@ -58,21 +55,18 @@ public class Inventario {
 
                 case 7:
                     mostrarInventario(
-                        productos,
-                        cantidadProductos
-                    );
+                            productos,
+                            cantidadProductos);
                     break;
 
                 case 0:
                     System.out.println(
-                        "Programa finalizado."
-                    );
+                            "Programa finalizado.");
                     break;
 
                 default:
                     System.out.println(
-                        "Opción no válida."
-                    );
+                            "Opción no válida.");
             }
 
             System.out.println();
@@ -96,16 +90,14 @@ public class Inventario {
     }
 
     private static int registrarProducto(
-        Producto[] productos,
-        int cantidadProductos,
-        Scanner scanner
-    ) {
+            Producto[] productos,
+            int cantidadProductos,
+            Scanner scanner) {
 
         if (cantidadProductos >= productos.length) {
 
             System.out.println(
-                "No hay espacio para más productos."
-            );
+                    "No hay espacio para más productos.");
 
             return cantidadProductos;
         }
@@ -116,8 +108,7 @@ public class Inventario {
         if (buscarPorCodigo(productos, codigo) != -1) {
 
             System.out.println(
-                "Ya existe un producto con ese código."
-            );
+                    "Ya existe un producto con ese código.");
 
             return cantidadProductos;
         }
@@ -129,34 +120,29 @@ public class Inventario {
         double precio = scanner.nextDouble();
         scanner.nextLine();
 
-        productos[cantidadProductos] =
-            new Producto(codigo, nombre, precio);
+        productos[cantidadProductos] = new Producto(codigo, nombre, precio);
 
         cantidadProductos++;
 
         System.out.println(
-            "Producto registrado correctamente."
-        );
+                "Producto registrado correctamente.");
 
         return cantidadProductos;
     }
 
     private static void buscarProducto(
-        Producto[] productos,
-        Scanner scanner
-    ) {
+            Producto[] productos,
+            Scanner scanner) {
 
         System.out.print("Ingrese el código: ");
         String codigo = scanner.nextLine();
 
-        int posicion =
-            buscarPorCodigo(productos, codigo);
+        int posicion = buscarPorCodigo(productos, codigo);
 
         if (posicion == -1) {
 
             System.out.println(
-                "Producto no encontrado."
-            );
+                    "Producto no encontrado.");
 
         } else {
 
@@ -165,21 +151,18 @@ public class Inventario {
     }
 
     private static void registrarEntrada(
-        Producto[] productos,
-        Scanner scanner
-    ) {
+            Producto[] productos,
+            Scanner scanner) {
 
         System.out.print("Código del producto: ");
         String codigo = scanner.nextLine();
 
-        int posicion =
-            buscarPorCodigo(productos, codigo);
+        int posicion = buscarPorCodigo(productos, codigo);
 
         if (posicion == -1) {
 
             System.out.println(
-                "Producto no encontrado."
-            );
+                    "Producto no encontrado.");
 
             return;
         }
@@ -188,90 +171,75 @@ public class Inventario {
         int cantidad = scanner.nextInt();
         scanner.nextLine();
 
-        if (
-            productos[posicion]
-                .registrarEntrada(cantidad)
-        ) {
+        if (productos[posicion]
+                .registrarEntrada(cantidad)) {
 
             System.out.println(
-                "Entrada registrada correctamente."
-            );
+                    "Entrada registrada correctamente.");
 
         } else {
 
             System.out.println(
-                "No fue posible registrar la entrada."
-            );
+                    "No fue posible registrar la entrada.");
         }
     }
 
     private static void registrarSalida(
-        Producto[] productos,
-        Scanner scanner
-    ) {
+            Producto[] productos,
+            Scanner scanner) {
 
         System.out.print("Código del producto: ");
         String codigo = scanner.nextLine();
 
-        int posicion =
-            buscarPorCodigo(productos, codigo);
+        int posicion = buscarPorCodigo(productos, codigo);
 
         if (posicion == -1) {
 
             System.out.println(
-                "Producto no encontrado."
-            );
+                    "Producto no encontrado.");
 
         } else {
 
             System.out.println(
-                "No fue posible registrar la salida."
-            );
+                    "No fue posible registrar la salida.");
         }
     }
 
     private static void consultarStock(
-        Producto[] productos,
-        Scanner scanner
-    ) {
+            Producto[] productos,
+            Scanner scanner) {
 
         System.out.print("Código del producto: ");
         String codigo = scanner.nextLine();
 
-        int posicion =
-            buscarPorCodigo(productos, codigo);
+        int posicion = buscarPorCodigo(productos, codigo);
 
         if (posicion == -1) {
 
             System.out.println(
-                "Producto no encontrado."
-            );
+                    "Producto no encontrado.");
 
         } else {
 
             System.out.println(
-                "Stock disponible: " +
-                productos[posicion].getStock()
-            );
+                    "Stock disponible: " +
+                            productos[posicion].getStock());
         }
     }
 
     private static void mostrarHistorial(
-        Producto[] productos,
-        Scanner scanner
-    ) {
+            Producto[] productos,
+            Scanner scanner) {
 
         System.out.print("Código del producto: ");
         String codigo = scanner.nextLine();
 
-        int posicion =
-            buscarPorCodigo(productos, codigo);
+        int posicion = buscarPorCodigo(productos, codigo);
 
         if (posicion == -1) {
 
             System.out.println(
-                "Producto no encontrado."
-            );
+                    "Producto no encontrado.");
 
         } else {
 
@@ -280,19 +248,16 @@ public class Inventario {
     }
 
     private static void mostrarInventario(
-        Producto[] productos,
-        int cantidadProductos
-    ) {
+            Producto[] productos,
+            int cantidadProductos) {
 
         System.out.println(
-            "===== INVENTARIO COMPLETO ====="
-        );
+                "===== INVENTARIO COMPLETO =====");
 
         if (cantidadProductos == 0) {
 
             System.out.println(
-                "No hay productos registrados."
-            );
+                    "No hay productos registrados.");
 
             return;
         }
@@ -304,16 +269,13 @@ public class Inventario {
     }
 
     private static int buscarPorCodigo(
-        Producto[] productos,
-        String codigo
-    ) {
+            Producto[] productos,
+            String codigo) {
 
         for (int i = 0; i < productos.length; i++) {
 
-            if (
-                productos[i] != null &&
-                productos[i].getCodigo().equals(codigo)
-            ) {
+            if (productos[i] != null &&
+                    productos[i].getCodigo().equals(codigo)) {
 
                 return i;
             }
